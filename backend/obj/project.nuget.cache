@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3z+nIQGbPqI=",
+  "dgSpecHash": "0eLvkSV0R/8=",
   "success": true,
   "projectFilePath": "C:\\Projects\\sim-league-control-center\\backend\\backend.csproj",
   "expectedPackageFiles": [
@@ -39,5 +39,18 @@
     "C:\\Users\\Bruger\\.nuget\\packages\\system.composition.runtime\\9.0.0\\system.composition.runtime.9.0.0.nupkg.sha512",
     "C:\\Users\\Bruger\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "backend depends on Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.6) but Npgsql.EntityFrameworkCore.PostgreSQL 9.0.6 was not found. Npgsql.EntityFrameworkCore.PostgreSQL 10.0.0 was resolved instead.",
+      "projectPath": "C:\\Projects\\sim-league-control-center\\backend\\backend.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Projects\\sim-league-control-center\\backend\\backend.csproj",
+      "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

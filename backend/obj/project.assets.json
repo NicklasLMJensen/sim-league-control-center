@@ -2648,7 +2648,7 @@
       "Microsoft.AspNetCore.OpenApi >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.3",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.0",
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.6",
       "Swashbuckle.AspNetCore >= 10.1.4"
     ]
   },
@@ -2713,7 +2713,7 @@
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
-            "version": "[10.0.0, )"
+            "version": "[9.0.6, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -3156,5 +3156,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "backend depends on Npgsql.EntityFrameworkCore.PostgreSQL (>= 9.0.6) but Npgsql.EntityFrameworkCore.PostgreSQL 9.0.6 was not found. Npgsql.EntityFrameworkCore.PostgreSQL 10.0.0 was resolved instead.",
+      "libraryId": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
