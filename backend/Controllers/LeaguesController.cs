@@ -19,8 +19,24 @@ namespace SimleagueControlCenter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<League>>> GetLeagues()
         {
-            var leagues = await _context.Leagues.ToListAsync();
-            return Ok(leagues);
+            return await _context.Leagues.ToListAsync();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<League>> GetLeague(int id)
+        {
+            var league = await _context.Leagues.FindAsync(id);
+            if (league == null) return NotFound();
+            return league;
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<League>> PostLeague(League league)
+        {
+            _context.Leagues.Add(league);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetLeague), new { id = league.Id }, league);
         }
     }
 }
