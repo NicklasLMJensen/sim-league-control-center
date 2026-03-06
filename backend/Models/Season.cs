@@ -8,7 +8,7 @@ namespace SimLeagueControlCenter.Models
         public int Id { get; set; }
 
         [Required]
-        public string name { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
 
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
