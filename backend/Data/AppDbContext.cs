@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SimleagueControlCenter.Models;
 using SimLeagueControlCenter.Models;
 
 namespace SimLeagueControlCenter.Data
@@ -14,7 +15,15 @@ namespace SimLeagueControlCenter.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Season>().HasOne(s => s.League).WithMany().HasForeignKey(s => s.LeagueId);
+            modelBuilder.Entity<Season>()
+            .HasOne(s => s.League)
+            .WithMany()
+            .HasForeignKey(s => s.LeagueId);
+
+            modelBuilder.Entity<Event>()
+            .HasOne(e => e.Season)
+            .WithMany()
+            .HasForeignKey(e => e.SeasonId);
 
             base.OnModelCreating(modelBuilder);
         }
