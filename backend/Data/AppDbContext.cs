@@ -13,6 +13,8 @@ namespace SimLeagueControlCenter.Data
         public DbSet<League> Leagues { get; set; } = null!;
         public DbSet<Season> Seasons { get; set; } = null!;
 
+        public DbSet<Event> Events { get; set; } = null!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Season>()

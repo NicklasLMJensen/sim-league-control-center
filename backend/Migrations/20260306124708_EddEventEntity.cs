@@ -12,10 +12,7 @@ namespace backend.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "name",
-                table: "Seasons",
-                newName: "Name");
+            
 
             migrationBuilder.CreateTable(
                 name: "Event",
