@@ -14,6 +14,7 @@ namespace SimLeagueControlCenter.Data
         public DbSet<Season> Seasons { get; set; } = null!;
 
         public DbSet<Event> Events { get; set; } = null!;
+        public DbSet<Session> Sessions { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,11 @@ namespace SimLeagueControlCenter.Data
             .HasOne(e => e.Season)
             .WithMany()
             .HasForeignKey(e => e.SeasonId);
+
+            modelBuilder.Entity<Session>()
+            .HasOne(s => s.Event)
+            .WithMany()
+            .HasForeignKey(s => s.EventId);
 
             base.OnModelCreating(modelBuilder);
         }
