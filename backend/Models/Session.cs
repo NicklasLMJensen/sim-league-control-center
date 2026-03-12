@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using SimLeagueControlCenter.Models;
 
 
 namespace SimleagueControlCenter.Models
@@ -8,14 +9,14 @@ namespace SimleagueControlCenter.Models
     {
         public int Id { get; set; }
 
-        [Required, StringLength(100)]
-        public string Name { get; set; } = string.Empty;
+        [Required]
+        public SessionType Type { get; set; }
 
         [Required]
         public DateTime StartTime { get; set;}
 
         [Required]
-        public TimeSpan Dur { get; set; }
+        public TimeSpan Duration { get; set; }
 
         [Required]
         public int EventId { get; set; }

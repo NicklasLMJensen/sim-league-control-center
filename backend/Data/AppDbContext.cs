@@ -24,6 +24,7 @@ namespace SimLeagueControlCenter.Data
             .HasForeignKey(s => s.LeagueId);
 
             modelBuilder.Entity<Event>()
+            .ToTable("Events")
             .HasOne(e => e.Season)
             .WithMany()
             .HasForeignKey(e => e.SeasonId);
@@ -32,6 +33,10 @@ namespace SimLeagueControlCenter.Data
             .HasOne(s => s.Event)
             .WithMany()
             .HasForeignKey(s => s.EventId);
+
+            modelBuilder.Entity<Session>()
+            .Property(s => s.Type)
+            .HasConversion<string>();
 
             base.OnModelCreating(modelBuilder);
         }
