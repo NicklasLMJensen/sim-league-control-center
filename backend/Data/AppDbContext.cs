@@ -15,6 +15,7 @@ namespace SimLeagueControlCenter.Data
 
         public DbSet<Event> Events { get; set; } = null!;
         public DbSet<Session> Sessions { get; set; } = null!;
+        public DbSet<Driver> Drivers { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -37,6 +38,9 @@ namespace SimLeagueControlCenter.Data
             modelBuilder.Entity<Session>()
             .Property(s => s.Type)
             .HasConversion<string>();
+
+            modelBuilder.Entity<Driver>()
+            .ToTable("Drivers");
 
             base.OnModelCreating(modelBuilder);
         }
