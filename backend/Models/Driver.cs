@@ -7,7 +7,7 @@ namespace SimLeagueControlCenter.Models
         public int Id { get; set; }
 
         [Required, StringLength(100)]
-        public string Name { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
 
         [Required, StringLength(100)]
         public string LastName { get; set; } = string.Empty;
