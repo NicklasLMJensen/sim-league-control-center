@@ -18,6 +18,8 @@ namespace SimLeagueControlCenter.Data
         public DbSet<Driver> Drivers { get; set; } = null!;
         public DbSet<Team> Teams { get; set; } = null!;
 
+        public DbSet<Car> Cars { get; set; } =null!;
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Season>()
@@ -45,6 +47,9 @@ namespace SimLeagueControlCenter.Data
 
             modelBuilder.Entity<Team>()
             .ToTable("Teams");
+
+            modelBuilder.Entity<Car>()
+            .ToTable("Cars");
 
             base.OnModelCreating(modelBuilder);
         }
