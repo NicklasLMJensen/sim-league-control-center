@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SimleagueControlCenter.Models;
+using SimLeagueControlcenter.Models;
 using SimLeagueControlCenter.Models;
 
 namespace SimLeagueControlCenter.Data
@@ -17,9 +18,8 @@ namespace SimLeagueControlCenter.Data
         public DbSet<Session> Sessions { get; set; } = null!;
         public DbSet<Driver> Drivers { get; set; } = null!;
         public DbSet<Team> Teams { get; set; } = null!;
-
-        public DbSet<Car> Cars { get; set; } =null!;
-
+        public DbSet<Car> Cars { get; set; } = null!;
+        public DbSet<Entry> Entries { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Season>()
@@ -50,6 +50,27 @@ namespace SimLeagueControlCenter.Data
 
             modelBuilder.Entity<Car>()
             .ToTable("Cars");
+
+            modelBuilder.Entity<Entry>()
+            .ToTable("Entries")
+            .HasOne(e => e.Season)
+            .WithMany()
+            .HasForeignKey(e => e.SeasonId);
+
+            modelBuilder.Entity<Entry>()
+            .HasOne(e => e.Driver)
+            .WithMany()
+            .HasForeignKey(e => e.DriverId);
+
+            modelBuilder.Entity<Entry>()
+            .HasOne(e => e.Team)
+            .WithMany()
+            .HasForeignKey(e => e.TeamId);
+
+            modelBuilder.Entity<Entry>()
+            .HasOne(e => e.Car)
+            .WithMany()
+            .HasForeignKey(e => e.CarId);
 
             base.OnModelCreating(modelBuilder);
         }
